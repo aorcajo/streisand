@@ -1,4 +1,8 @@
 ---
+
+wireguard_source_url: "https://git.zx2c4.com/WireGuard/snapshot/WireGuard-0.0.20170115.tar.xz"
+wireguard_source_location: "/usr/local/src/wireward.tar.xz"
+wireward_compilation_directory: "/usr/local/src/WireGuard-0.0.20170115"
 wireguard_path: "/etc/wireguard"
 wireguard_client_private_key_file: "{{ wireguard_path }}/client.key"
 wireguard_client_public_key_file:  "{{ wireguard_path }}/client.pub"
