@@ -8,14 +8,18 @@ ocserv_dependencies:
   - autogen
   - gnutls-bin
   - libev-dev
-  - libgnutls-dev
-  - libgnutls30
+  - libgnutls-deb0-28
+  - libgnutls28-dev
+  - libkrb5-dev
   - libnl-route-3-dev
   - libpam0g-dev
   - libreadline-dev
   - libseccomp-dev
   - libwrap0-dev
   - pkg-config
+  - python-pip
+ocserv_python_dependencies:
+    - pexpect
 ocserv_checksum: "sha256:937c7ad401983a9183cec5976afd79ce1af5b2793dc71885d2a4ecdb043bd48c"
 ocserv_version: "0.11.6"
 ocserv_compilation_directory: "/usr/local/src/ocserv-{{ ocserv_version }}"

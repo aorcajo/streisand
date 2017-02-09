@@ -4,6 +4,12 @@
     name: "{{ item }}"
   with_items: "{{ ocserv_dependencies }}"
 
+- name: Install ocserv python dependencies
+  pip:
+    name: "{{ item }}"
+    extra_args: --ignore-installed
+  with_items: "{{ ocserv_python_dependencies }}"
+
 - name: Retrieve the ocserv source code
   get_url:
     # This CDN mirrors the ocserv source code, and helps
@@ -26,7 +32,7 @@
     creates: "{{ ocserv_compilation_directory }}/README.md"
 
 - name: Compile and install ocserv
-  shell: ./configure && make -j {{ ansible_processor_cores }} && make install
+  shell: ./configure --prefix=/usr --sysconfdir=/etc --disable-seccomp && make -j {{ ansible_processor_cores }} && make install
   args:
     chdir: "{{ ocserv_compilation_directory }}"
     creates: "{{ ocserv_compilation_directory }}/config.log"
